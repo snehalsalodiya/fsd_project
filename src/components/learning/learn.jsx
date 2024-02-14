@@ -69,9 +69,9 @@ const Learn = () => {
 
       <div className="col-span-10 sm:col-span-10 md:col-span-5 ">
   {/* Card */}
-  <a
+        <a
             className="mt-3 group relative block rounded-2xl overflow-hidden dark:focus:outline-none dark:focus:ring-3 dark:focus:ring-gray-200 border-4  hover:border-gray-300 border-gray-500"
-            href="/intro"
+            href="/introsql"
           >
     <div className="aspect-w-16 aspect-h-1 sm:aspect-none focus:ring-white font-medium rounded-xl overflow-hidden">
       <img
