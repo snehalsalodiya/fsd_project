@@ -9,7 +9,7 @@ export default function NewHome() {
     return (
         <div style={{ minHeight: "100vh" }}>
             <Header />
-            <div className="relative">
+            <div className=" relative">
                 <div className="container">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}

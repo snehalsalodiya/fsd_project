@@ -1,19 +1,21 @@
+/* eslint-disable react/no-children-prop */
 /* eslint-disable no-unused-vars */
 
 // import React from 'react';
 import {Link,NavLink} from 'react-router-dom'
 import { useAuth } from '/src/components/storage/auth.jsx';
 import { toast } from 'react-toastify';
+import Dropdown from './DropDown';
+import  DropDownMenu from './example';
 //link tag is used in place of a tag because a refreshes whole pag but in react there is no page refreshing concepts.... 
 //NavLink 
-
 export default function Header() {
     const {user,isLoggedIn} = useAuth();
 
     return (
         
         <header >
-                <nav className="relative px-4 lg:px-8 py-2 rounded-lg bg-transparent backdrop-blur-sm backdrop-brightness-90 ">
+                <nav className=" z-50 relative px-4 lg:px-8 py-2 rounded-lg bg-transparent backdrop-blur-sm backdrop-brightness-90 ">
                     <div className="flex items-center justify-between mx-auto max-w-screen-xl ">
                         <Link to="/" className="flex items-center text-gray-400">
                             <img
@@ -68,7 +70,7 @@ export default function Header() {
                               </NavLink>
                           </li>
                           
-                          <li>
+                          {/* <li>
                               <NavLink
                                 to={"/learn"}//to make page active 
                                   className={({isActive}) =>//isActive is used to check that this link is active or not ......
@@ -79,10 +81,12 @@ export default function Header() {
                               >
                                   Learn
                               </NavLink>
-                          </li>
-                          
+                          </li> */}
+                     <li className='pl-0 w-20 '>
+                          < DropDownMenu/>
+                      </li>                          
 
-                                  <li>
+                            <li>
                                   <NavLink
                                         to={"/blog"}//to make page active 
                                           className={({isActive}) =>//isActive is used to check that this link is active or not ......

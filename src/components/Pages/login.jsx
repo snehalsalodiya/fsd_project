@@ -136,12 +136,14 @@ function Login(){
                                             onSuccess={(CredentialsResponse)=>{
                                                 var decoded = jwtDecode(CredentialsResponse.credential);
                                                 // console.log(CredentialsResponse);
-                                                console.log(decoded);          
+                                                console.log(decoded);
+                                                          
                                                 toast.success("successfully verified...");
                                                 navigate("/");  
                                             }
-                                            }
-                                            onError={()=>{
+                                        }
+                                        onchange={handleInput}
+                                        onError={()=>{
                                                 console.log("login failed....");
                                                 toast.error("Not Verified...");
                                             }}
