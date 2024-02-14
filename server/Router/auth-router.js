@@ -5,7 +5,7 @@ const validate = require("../middlerwares/auth-middleware");
 const {signupSchema,loginSchema} = require("../validator/auth-validator");
 const authMiddleware = require("../middlerwares/auth-user-middleware");
 const blogcontroller = require("../controllers/blog-controller");
-
+const User = require("../models/demo-model");
 // router.get("/",(req,res)=>{
 //     res.status(200).send("best series by router....");
 // });
@@ -26,6 +26,8 @@ router.route("/user").get(authMiddleware , controller.user);
 // router.route("/user").get(controller.user);
 
 router.route("/blog").get(blogcontroller);
+
+//*************************************************** */
 
 
 // second method for router...
