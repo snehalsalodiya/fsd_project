@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useAuth } from "../storage/auth";
 import { toast } from "react-toastify";
 import MatrixRainCode from "../MatrixRainCode/MatrixRainCode";
+import Button from "../Buttons/Button";
 export default function Contact() {
     
     
@@ -221,6 +222,7 @@ export default function Contact() {
                                         
                                         <input className="mt-4 mb-2 w-full cursor-pointer rounded-lg bg-cyan-700 pt-3 pb-3 text-white shadow-lg hover:bg-cyan-600" type="submit" value="send message" />
                                     </form>
+                                        <Button/>
                             </div>
                     </div>
                 </div>

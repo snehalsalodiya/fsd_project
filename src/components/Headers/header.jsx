@@ -4,8 +4,6 @@
 // import React from 'react';
 import {Link,NavLink} from 'react-router-dom'
 import { useAuth } from '/src/components/storage/auth.jsx';
-import { toast } from 'react-toastify';
-import Dropdown from './DropDown';
 import  DropDownMenu from './example';
 //link tag is used in place of a tag because a refreshes whole pag but in react there is no page refreshing concepts.... 
 //NavLink 

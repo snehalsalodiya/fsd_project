@@ -21,6 +21,9 @@ import { Labs } from './components/learning/labs.jsx';
 import { Intro } from './components/learning/intro.jsx';
 import {SqlInjection} from "./components/practice/lab1/practice_sql.jsx";
 import { IntroSql } from './components/learning/sqlnjection.jsx';
+import WebFundamentals from './components/learning/webfundamental.jsx';
+import MovieCenter from './components/practice/xss-Movie.jsx';
+import PhishingIntro from './components/learning/phishing.jsx';
 
 function App() {
 
@@ -39,9 +42,12 @@ function App() {
         <Route path='/contact' element={<Contact/>}/>
         <Route path="/intro" element={<Intro/>} />
         <Route path='/learn' element={<Learn/>}/>
+        <Route path="/webfunda" element={<WebFundamentals/>} />
+        <Route path='/learn' element={<Learn/>}/>
         <Route path='/lab1' element={<SqlInjection/>}/>
         <Route path='/introsql' element={<IntroSql/>}/>
-
+        <Route path='/introphishing' element={<PhishingIntro/>}/>
+        <Route path='/phishing' element={<MovieCenter/>}/>
         <Route path='/labs' element={<Labs/>}/>
         <Route path='/user/:userid' element={<User/>}/>{/*here user:__userid__ gives access in url and that __userid__ is drectly access in  User.jsx file with same name  */}   
       {/* <Route

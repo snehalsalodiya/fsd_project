@@ -13,11 +13,11 @@ export default function Footer() {
           </Link>
         </div>
         <div className="flex items-center justify-center">
-            <ul className="text-gray-400 font-medium">
-                <Link to="/" className="hover:text-cyan-500 mr-4">Home</Link>
-                <Link to="/about" className="hover:text-cyan-500 mr-4">About</Link>
-                <Link to="/contact" className="hover:text-cyan-500 mr-4">Contact</Link>
-                <Link to="/blog" className="hover:text-cyan-500 mr-4">Blog</Link>
+            <ul className=" font-medium">
+                <Link to="/" className="text-gray-500 hover:text-cyan-500 mr-4">Home</Link>
+                <Link to="/about" className="text-gray-500 hover:text-cyan-500 mr-4">About</Link>
+                <Link to="/contact" className="text-gray-500 hover:text-cyan-500 mr-4">Contact</Link>
+                <Link to="/blog" className="text-gray-500 hover:text-cyan-500 mr-4">Blog</Link>
             </ul>
         </div>
         <hr className="my-6 border-gray-400 w-full" />
@@ -40,7 +40,7 @@ export default function Footer() {
             </svg>
             <span className="sr-only">Twitter</span>
           </Link>
-          <Link to="#" className="text-gray-500 hover:text-cyan-500">
+          <Link to="#" className="text-gray-400 hover:text-cyan-500">
                         <svg
                             className="w-4 h-4"
                             aria-hidden="true"

@@ -35,7 +35,7 @@ const Learn = () => {
         {/* Card */}
         <a
             className="mt-3 group relative block rounded-2xl overflow-hidden dark:focus:outline-none dark:focus:ring-3 dark:focus:ring-gray-200 border-4  hover:border-gray-300 border-gray-500"
-            href="/intro"
+            href="/webfunda"
           >   <div className="aspect-w-12 aspect-h-7 sm:aspect-none rounded-xl overflow-hidden">
             <img className="group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl w-full object-cover" src="https://assets.tryhackme.com/img/paths/web-square.svg" alt="..." />
           </div>
@@ -53,7 +53,7 @@ const Learn = () => {
         {/* Card */}
         <a
             className="mt-3 group relative block rounded-2xl overflow-hidden dark:focus:outline-none dark:focus:ring-3 dark:focus:ring-gray-200 border-4  hover:border-gray-300 border-gray-500"
-            href="/intro"
+            href="/introphishing"
           > <div className="aspect-w-12 aspect-h-7 sm:aspect-none rounded-xl overflow-hidden">
             <img className="group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl w-full object-cover" src="photos/phishing.jpg" alt="..." />
           </div>
