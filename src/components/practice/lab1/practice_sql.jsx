@@ -6,6 +6,10 @@ import { FaHome } from 'react-icons/fa';
 export const SqlInjection = () => {
   const [errorMessage, setErrorMessage] = useState('');
 
+  const openWebPage = () => {
+    const url = 'https://demo.testfire.net/login.jsp';
+    window.open(url, '_blank');
+  };
   useEffect(() => {
     if (document.location.hash === '#unauthorized') {
       setErrorMessage('Invalid Username or Password');
@@ -77,6 +81,14 @@ export const SqlInjection = () => {
         >
           <AiOutlineSearch className="mr-2" />
           Labs
+        </button>
+        <div className="mx-4 border-l border-gray-100"></div>
+
+        <button
+          type="button"
+          className="bg-gradient-to-r from-cyan-500 to-green-600 text-white hover:scale-105 hover:shadow-white py-2 px-4 rounded-full inline-flex items-center hover:shadow-md focus:ring-2 focus:ring-green-500"
+          onClick={openWebPage}>
+          Open Altoro Mutual
         </button>
       </div>
     </div>

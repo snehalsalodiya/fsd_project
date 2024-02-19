@@ -6,7 +6,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { FaHome } from 'react-icons/fa';
 
 const MovieCenter = () => {
-
+  
   const [, setName] = useState("");
 
   return (
@@ -59,15 +59,7 @@ Now do you think it is dangerous enough?
           style={{ overflow: 'hidden' }}
         ></iframe>
       </div>
-      <div className=' bg-white shadow-md rounded-md p-6' style={{ width: '1100px', overflow: 'hidden' }}>
-        <iframe
-          src="https://demo.testfire.net"
-          title="External Content"
-          width="100%"
-          height="1200px"
-          style={{ overflow: 'hidden' }}
-        ></iframe>
-      </div>
+    
       <div className='mt-4 bg-white shadow-md rounded-md p-6' style={{ width: '1100px', overflow: 'hidden' }}>
         <iframe
           src="http://localhost:4000"
@@ -107,10 +99,12 @@ Escape untrusted output: As you learned, showing data to the user is the primary
           <AiOutlineSearch className="mr-2" />
           Labs
         </button>
+        
       </div>
      
     </div>
   );
 };
+
 
 export default MovieCenter;
