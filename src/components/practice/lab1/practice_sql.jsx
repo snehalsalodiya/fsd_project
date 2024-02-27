@@ -2,10 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaHome } from 'react-icons/fa';
-
+import { AwesomeButton } from 'react-awesome-button';
+import 'react-awesome-button/dist/styles.css';
+import './style.css'
+import { labButton } from '../../Buttons/Button';
+import { useNavigate } from 'react-router-dom';
 export const SqlInjection = () => {
   const [errorMessage, setErrorMessage] = useState('');
-
+  const Navigate = useNavigate();
   const openWebPage = () => {
     const url = 'https://demo.testfire.net/login.jsp';
     window.open(url, '_blank');
@@ -19,14 +23,14 @@ export const SqlInjection = () => {
   }, []);
 
   return (
-    <div className="relative mt-8 w-screen h-screen overflow-hidden">
-      <video autoPlay muted loop className="w-full h-full object-cover absolute top-0 left-0 z-[-1]">
+    <div className="relative mt-8  h-screen overflow-hidden">
+      <video autoPlay muted loop className="w-full h-full object-cover  z-[-1]">
         <source src="/photos/background.mp4" type="video/mp4" />
       </video>
 
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <form action="http://localhost:5001/login" method="post" className="border-3 border-f1f1f1 max-w-sm mx-auto p-16">
-          <div className="bg-opacity-70 bg-gray-800 p-8">
+          <div className="bg-opacity-75 bg-gray-800 p-8">
             <label className="block text-gray-400 text-lg font-bold mb-2">Username</label>
             <input
               type="text"
@@ -52,6 +56,33 @@ export const SqlInjection = () => {
               Login
             </button>
           </div>
+         <div className='mt-2'>
+         <AwesomeButton
+            onPress={()=>{Navigate('/')}} // Add onClick event
+            type="primary"
+            className='aws-btn1'
+            >
+            <FaHome />
+              Home
+          </AwesomeButton>
+                {/* Divider */}
+          <AwesomeButton
+            onPress={()=>{Navigate('/learn')}} // Add onClick event
+            type="primary"
+            className='aws-btn1'
+            >
+              <AiOutlineSearch className="mr-2" />   
+              Labs
+          </AwesomeButton>
+          <AwesomeButton
+            onPress={openWebPage}
+            type="primary"
+            className='aws-btn1'
+            >
+              <AiOutlineSearch className="mr-2" />   
+             Sql
+          </AwesomeButton>
+          </div> 
         </form>
 
         {errorMessage && (
@@ -61,37 +92,7 @@ export const SqlInjection = () => {
         )}
       </div>
 
-      <div className="flex justify-center mt-4">
-        <button
-          type="button"
-          className=" bg-gradient-to-r from-sky-500 to-blue-600 hover:scale-105 hover:shadow-white text-white font-mono py-2 px-4 rounded-full inline-flex items-center hover:shadow-lg focus:ring-2 focus:ring-blue-500"
-          onClick={() => (window.location.href = '/')}
-        >
-          <FaHome className="mr-2" />
-          Home
-        </button>
-
-        {/* Divider */}
-        <div className="mx-4 border-l border-gray-100"></div>
-
-        <button
-          type="button"
-          className="bg-gradient-to-r from-cyan-500 to-green-600 text-white hover:scale-105 hover:shadow-white py-2 px-4 rounded-full inline-flex items-center hover:shadow-md focus:ring-2 focus:ring-green-500"
-          onClick={() => (window.location.href = '/learn')}
-        >
-          <AiOutlineSearch className="mr-2" />
-          Labs
-        </button>
-        <div className="mx-4 border-l border-gray-100"></div>
-
-        <button
-          type="button"
-          className="bg-gradient-to-r from-cyan-500 to-green-600 text-white hover:scale-105 hover:shadow-white py-2 px-4 rounded-full inline-flex items-center hover:shadow-md focus:ring-2 focus:ring-green-500"
-          onClick={openWebPage}>
-          Open Altoro Mutual
-        </button>
-      </div>
-    </div>
+     </div>
   );
 };
 

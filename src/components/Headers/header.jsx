@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <header>
       <nav className="z-50 relative px-4 lg:px-8 py-3 rounded-lg bg-transparent backdrop-blur-sm backdrop-brightness-90">
-        <div className="py-2  flex items-center justify-between mx-auto max-w-screen-xl">
+        <div className="flex items-center justify-between mx-auto max-w-screen-xl">
           <Link to="/" className="flex items-center">
             <img
               src="/photos/logo.png"

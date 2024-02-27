@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { AiOutlineSearch } from "react-icons/ai";
 import { useRef, useCallback, useState, useEffect } from "react";
-
+import { AwesomeButton } from "react-awesome-button";
+import { Navigate } from "react-router-dom";
+import Button from "../Buttons/Button";
 
 export const IntroSql = () => {
   const [password, setPassword] = useState("");
@@ -195,17 +198,7 @@ export const IntroSql = () => {
         Once you have played with the login application, try the following values
         and observe the SQL query displayed in the log section.
       </p>
-
-      <button
-        type="button"
-        className="bg-gradient-to-r from-lime-500 to-green-600 text-white font-sans py-2 px-4 rounded-full inline-flex items-center hover:scale-110  hover:shadow-md hover:shadow-white focus:ring-2 focus:ring-green-500 mt-4"
-        title="Open SQL Lab for a practical session"
-        onClick={() => (window.location.href = "/lab1")}
-      >
-        <AiOutlineSearch className="mr-2" />
-        Start SQL Lab
-      </button>
-      
+       <Button/>
     </div>
   );
 };

@@ -5,6 +5,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../storage/auth";
 import {NavLink} from 'react-router-dom';
+import Button,{homeButton} from '../Buttons/Button'
 export const AdminUsers = () => {
     const { TokenAuthorization } = useAuth();
     
@@ -12,6 +13,7 @@ export const AdminUsers = () => {
      to store data from backend...
      *******************************/
     const [users, setUsers] = useState([]);
+    const [searchTerm, setSearchTerm] = useState(" ");
 
     const getAllUserData = async () => {
         try {
@@ -65,66 +67,21 @@ export const AdminUsers = () => {
     }
 };
 
-    useEffect(() => {
-        getAllUserData();
-        
-    }, []);
+  const filteredUsers=users.filter(user =>
+  user.username.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  user.phone.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
+    useEffect(() => {
+      getAllUserData();
+      }, []);
     return (
         <>
-    {/* <section className="admin-users-section  text-white">
-                            
-        <div className="container">
-        <h1 className="mt-2 main-heading text-7xl font-bold text-center mb-10">
-            <span className="bg-gradient-to-r  from-cyan-400 to-gray-500 text-transparent bg-clip-text">
-               USER DATA
-            </span>
-        </h1>
-        </div>
-        <div className="container mx-auto admin-users mt-4">
-            <table className=" min-w-full  rounded-lg overflow-hidden">
-                <thead className="bg-gray-300 text-black">
-                    <tr>
-                        <th className="py-2  border-b">Name</th>
-                        <th className="py-2  border-b">Email</th>
-                        <th className="py-2  border-b">Phone</th>
-                        <th className="py-2  border-b">Update</th>
-                        <th className="py-2  border-b">Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {users.map((currUser, index) => (
-                        <tr key={index} className={index % 2 === 0 ? 'bg-gray-700' : 'bg-gray-800'}>
-                            <td className="py-2 px-4 border-b">{currUser.username}</td>
-                            <td className="py-2 px-4 border-b">{currUser.email}</td>
-                            <td className="py-2 px-4 border-b">{currUser.phone}</td>
-                           
-                            <td className="py-2 px-4 border-b">
-                                <NavLink
-                                    to={`/update/${currUser._id}`}
-                                    className="bg-green-600 text-white py-1 px-2 rounded focus:outline-double focus:shadow-md transition duration-300 hover:bg-yellow-700"
-                                >
-                                    Edit
-                                </NavLink>
-                            </td>
-                            <td className="py-2 px-4 border-b">
-                                <button
-                                    onClick={() => deleteUser(currUser._id)}
-                                    className="bg-red-600 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline transition duration-300 hover:bg-red-700"
-                                >
-                                    Delete
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div> */}
-    {/* </section> */}
-    <div className="flex flex-col">
+    <div className="flex flex-co">
       <div className="-m-1.5 overflow-x-auto">
         <div className="p-1.5 min-w-full inline-block align-middle">
-          <div className="border rounded-lg divide-y divide-gray-200 dark:border-gray-700 dark:divide-gray-700">
+          <div className="border-2 rounded-lg divide-y divide-gray-200 dark:border-gray-700 dark:divide-gray-700">
             <div className="py-3 px-4">
               <div className="relative max-w-xs">
                 <label htmlFor="hs-table-with-pagination-search" className="sr-only">
@@ -132,12 +89,13 @@ export const AdminUsers = () => {
                 </label>
                 <input
                   type="text"
-                  name="hs-table-with-pagination-search"
                   id="hs-table-with-pagination-search"
                   className="py-2 px-3 ps-9 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                  placeholder="Search for items"
+                  placeholder="Search Users"
+                  onChange={(e) => {
+                    setSearchTerm(e.target.value)}}
                 />
-                <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-3">
+                 <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-3">
                   <svg
                     className="h-4 w-4 text-gray-400"
                     xmlns="http://www.w3.org/2000/svg"
@@ -161,9 +119,6 @@ export const AdminUsers = () => {
                 <thead className="bg-gray-50 dark:bg-gray-400">
                   <tr>
                     <th scope="col" className="py-3 px-0 pe-0">
-                      {/* <div className="flex items-center h-5"> */}
-                        
-                      {/* </div> */}
                     </th>
                     <th scope="col" className=" text-center font-medium text-white uppercase">
                       EMAIL
@@ -181,31 +136,59 @@ export const AdminUsers = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                {users.map((currUser, index) => (
-                        <tr key={index} className={index % 2 === 0 ? 'bg-gray-200' : 'bg-gray-100'}>
-                            <td className="py-2 px-4 border-b">{currUser.username}</td>
-                            <td className="py-2 px-4 border-b">{currUser.email}</td>
-                            <td className="py-2 px-4 border-b">{currUser.phone}</td>
-                           
-                            <td className="py-2 px-4 border-b">
-                                <NavLink
-                                    to={`/update/${currUser._id}`}
-                                    className="bg-green-600 text-white py-1 px-2 rounded focus:outline-double focus:shadow-md transition duration-300 hover:bg-yellow-700"
-                                >
-                                    Edit
-                                </NavLink>
-                            </td>
-                            <td className="py-2 px-4 border-b">
-                                <button
-                                    onClick={() => deleteUser(currUser._id)}
-                                    className="bg-red-600 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline transition duration-300 hover:bg-red-700"
-                                >
-                                    Delete
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
+  {(searchTerm.trim() === '' || filteredUsers.length === 0) ? (
+    users.map((currUser, index) => (
+      <tr key={index} className={index % 2 === 0 ? ' text-slate-500 bg-gray-200' : 'text-slate-700 bg-gray-300'}>
+        <td className="py-2 px-4 border-b">{currUser.username}</td>
+        <td className="py-2 px-4 border-b">{currUser.email}</td>
+        <td className="py-2 px-4 border-b">{currUser.phone}</td>
+        <td className="py-2 px-4 border-b">
+          <NavLink
+            to={`/update/${currUser._id}`}
+            className="bg-green-600 text-white py-1 px-2 rounded focus:outline-double focus:shadow-md transition duration-300 hover:bg-yellow-700"
+          >
+            Edit
+          </NavLink>
+        </td>
+        <td className="py-2 px-4 border-b">
+          <button
+            onClick={() => deleteUser(currUser._id)}
+            className="bg-red-600 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline transition duration-300 hover:bg-red-700"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>))
+  ) : (
+   
+    filteredUsers.map((currUser, index) => (
+      <tr key={index} className={index % 2 === 0 ? ' text-slate-500 bg-gray-200' : 'text-slate-700 bg-gray-300'}>
+        <td className="py-2 px-4 border-b">{currUser.username}</td>
+        <td className="py-2 px-4 border-b">{currUser.email}</td>
+        <td className="py-2 px-4 border-b">{currUser.phone}</td>
+        <td className="py-2 px-4 border-b">
+          <NavLink
+            to={`/update/${currUser._id}`}
+            className="bg-green-600 text-white py-1 px-2 rounded focus:outline-double focus:shadow-md transition duration-300 hover:bg-yellow-700"
+          >
+            Edit
+          </NavLink>
+        </td>
+        <td className="py-2 px-4 border-b">
+          <button
+            onClick={() => deleteUser(currUser._id)}
+            className="bg-red-600 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline transition duration-300 hover:bg-red-700"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    ))
+  
+  )}
+</tbody>
+
+            
               </table>
             </div>
             <div className="py-1 px-4">
@@ -217,7 +200,6 @@ export const AdminUsers = () => {
                   <span aria-hidden="true">«</span>
                   <span className="sr-only">Previous</span>
                 </button>
-                {/* ... Pagination buttons ... */}
                 <button
                   type="button"
                   className="p-2.5 inline-flex items-center gap-x-2 text-sm rounded-full text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-black dark:hover:bg-white/10"
@@ -249,6 +231,7 @@ export const AdminUsers = () => {
           </div>
         </div>
       </div>
+     
     </div>
 </>
 

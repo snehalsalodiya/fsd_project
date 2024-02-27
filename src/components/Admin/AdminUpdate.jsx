@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../storage/auth";
 import {toast} from 'react-toastify';
 import axios from 'axios';
@@ -14,6 +14,7 @@ export default function AdminUpdate() {
         email:'',
         phone:''
     });
+    const Navigate = useNavigate();
 
     useEffect(() => {
         // Fetch user data based on the ID from the backend
@@ -75,8 +76,19 @@ export default function AdminUpdate() {
     };
   
   return (
-    <>
-      <section className="section-blog py-10">
+    <div style={{
+      minWidth: "150vh",
+      minHeight: "90vh",
+      border: '5px solid gray',  // Adding a border with a blue color
+      borderRadius: '10px',         // Adding rounded corners
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',  // Adding a subtle box shadow
+      display: 'flex',              // Using flex for layout
+      alignItems: 'center',         // Centering content vertically
+      justifyContent: 'center',     // Centering content horizontally
+      background: '#ffffff',        // Setting a white background color
+      color: '#333',                // Setting text color
+      }}>
+    <div className="bg-white h-full  flex items-center justify-center">     <section className="section-blog py-10">
         <form className="mt-8" onSubmit={handleSubmit}>
          
           <div className="relative mt-2 w-full">
@@ -134,9 +146,15 @@ export default function AdminUpdate() {
             className="mt-4 mb-2 w-full cursor-pointer rounded-lg bg-cyan-700 pt-3 pb-3 text-white shadow-lg hover:bg-cyan-600"
             type="submit"
             value="Update account"
+            onClick={()=>{
+              setTimeout(()=>{
+                Navigate('/admin/users')
+              },2000);
+            }}
           />
         </form>
       </section>
-    </>
+    </div>
+    </div>
   );
 }

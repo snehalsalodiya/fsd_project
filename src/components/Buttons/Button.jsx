@@ -1,20 +1,48 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
-
+import './style.css'
+import { FaHome, FaSearch } from 'react-icons/fa';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { Navigate, useNavigate } from 'react-router-dom';
 function Button() {
-  const handleButtonClick = () => {
-    // Your custom logic when the button is clicked
-    console.log('Button clicked!');
-  };
-
+  const Navigate=useNavigate();
   return (
     <AwesomeButton
-      onPress={handleButtonClick} // Add onClick event
+      onPress={()=>{Navigate('/lab1')}} // Add onClick event
       type="primary"
+      className='aws-btn'
     >
-      Send Message
+      Start SQL Lab
+    </AwesomeButton>
+  );
+}
+export const homeButton=()=>{
+  
+  return (
+    <AwesomeButton
+    type="primary"
+    className='aws-search'
+    >
+    <FaSearch className="mr-2" />
+      Search
+    </AwesomeButton>
+  );
+}
+export const labButton=()=>{
+  
+  return (
+    <AwesomeButton
+    onPress={()=>{Navigate('/learn')}} // Add onClick event
+    type="primary"
+    className='aws-btn'
+    >
+    <FaHome className="mr-2" />
+    <AiOutlineSearch className="mr-2" />
+         
+      Labs
     </AwesomeButton>
   );
 }

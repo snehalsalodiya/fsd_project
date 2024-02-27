@@ -4,7 +4,7 @@ export const AdminContacts=()=>{
     return(
       <>
       <section className="section-blog  py-10">
-                         <form className="mt-8" >
+                         <form className="bg-white mt-8" >
                                         <div className="relative mt-2 w-full">
                                             <input
                                                 type="text"
